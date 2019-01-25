@@ -17,6 +17,11 @@ router.get('/', function(req, res) {
 
 app.use(router);
 
-app.listen(3000, function() {
-    console.log("Servidor Node en el puerto 3000");
+mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
+    if(err) {
+        console.log("Error: " + err);
+    }
+    app.listen(3000, function() {
+        console.log("Servidor Node en el puerto 3000");
+    });
 });
